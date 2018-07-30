@@ -1,0 +1,33 @@
+
+<div>
+	<h2><%= @geolocalisation.title %></h2>
+	<strong>Address:</strong>
+  	<%= @geolocalisation.name %>
+</div>
+<div>
+	<strong>Address:</strong>
+  	<%= @geolocalisation.address %>
+</div>
+<div>
+	<strong>Address:</strong>
+  	<%= @geolocalisation.latitude %>
+</div>
+<div>
+	<strong>Address:</strong>
+  	<%= @geolocalisation.longitude %>
+</div>
+<!--  ____________________________________________________________________________
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@geolocalisation.latitude}%2C#{@geolocalisation.longitude}" %>
+<h3>Nearby geolocalisations</h3>
+________________________________________________________________________________ -->
+<ul>
+	<% for geolocalisation in @geolocalisation.nearbys(10) %>
+  	<li><%= link_to geolocalisation.address, geolocalisation %> (<%= geolocalisation.distance.round(2) %> miles)</li>
+	<% end %>
+</ul>
+
+<p>
+  	<%= link_to "Editar", edit_geolocalisation_path(@geolocalisation), class:"red" %> |
+  	<%= link_to "Eliminar", @geolocalisation , class:"red", :confirm => 'Are you sure?', :method => :delete %> |
+  	<%= link_to "Atrás", geolocalisations_path , class:"red" %>
+</p>

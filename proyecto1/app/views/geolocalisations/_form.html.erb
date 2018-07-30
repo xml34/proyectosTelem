@@ -1,0 +1,98 @@
+
+<%= form_for(@geolocalisation) do |f|%>
+	<% @geolocalisation.errors.full_messages.each do |message| %>
+		<div>
+			*<%= message %>
+		</div>
+	<%end%>
+	<div class="field">		
+		<%=f.text_field :latitude, placeholder: "latitude"%>
+	</div>
+	<div class="field">
+		<%=f.text_field :longitude, placeholder: "longitude"%>
+	</div>
+	<div class="field">
+		<%=f.text_field :name, placeholder: "name"%>
+	</div>
+	<div class="field">		
+		<%=f.text_field :address, placeholder: "address"%>
+	</div>
+	<div class="field">		
+		<%=f.text_field :title, placeholder: "title"%>
+
+	</div>
+	<div class="field">
+		<%=f.submit "OBTENER", class:"btn"%>
+	</div>
+<%end%>
+
+<button onclick="getLocation();">Obtener localizacion</button>
+<button onclick="stopLocation();">Para localizacion</button>
+
+<p id="demo"></p>
+
+
+<script type="text/javascript">
+      
+  var x = document.getElementById("demo");
+  var stop = false;
+  var form = document.getElementById("rute_form");
+  function stopLocation() {
+    stop = true;
+  }
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+      if(stop == false) {
+        y = 5;  // Repeat every 5 Seconds
+        setTimeout(getLocation, y*1000);
+      }else {
+        alert("Stop geolocation");
+      }
+      
+  }
+  function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+      var my_lat = position.coords.latitude;
+      var my_lot = position.coords.longitude;
+      $(document).ready(function(){
+        $("#lat").val(my_lat);
+        $("#lot").val(my_lot);
+      });
+      sendPosition(my_lat,my_lot);
+      //form.submit();
+  }
+  function sendPosition(lat, lon) {
+    $.post('/locations/', { location: { latitude: lat, longitude: lon }}, function(response) {
+    // Success callback
+     });
+  }
+  $(function() {
+    $.ajaxSetup( {
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      }
+    });
+  });
+  function showError(error) {
+      switch(error.code) {
+          case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation."
+              break;
+          case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable."
+              break;
+          case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out."
+              break;
+          case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred."
+              break;
+      }
+  }
+  
+</script>
