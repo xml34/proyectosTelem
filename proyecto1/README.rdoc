@@ -6,7 +6,7 @@
  * Registro de eventos en tiempo real
  * Visualización de ruta previamente almacenada
 == Tecnologias
- Las tecnologias empleadas en el desarrollo son: <tt>Ruby</tt>, <tt>Rails</tt>, <tt>javaScript</tt>, <tt>Postgress</tt>, <tt>HTML</tt> y <tt>sqlite3</tt> en etapa de desarrollo.
+ Las tecnologias empleadas en el desarrollo son: <tt> Ruby </tt>, <tt>Rails</tt>, <tt>javaScript</tt>, <tt>Postgress</tt>, <tt>HTML</tt> y <tt>sqlite3</tt> en etapa de desarrollo.
 == SO
  * Unbuntu 16.04
 == Despliegue en DCA
