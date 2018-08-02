@@ -1,3 +1,48 @@
+ == PROYECTO 1 - Geolocation.
+ == Daniel Morales Londoño - dmoral12@eafit.edu.co
+ Este poryecto tiene el objetivo de desarrollar conseptos básicos de desarrollo web, dockerizacion y desplegar app al nube/datacenter. El proyecto consiste en una aplicación en la cual un usuario registrado puede guradar su ubicacion actual y graficarla en el mapa.
+ == Requisitos funcionales
+ * Autenticación de usuarios
+ * Registro de eventos en tiempo real
+ * Visualización de ruta previamente almacenada
+ == Tecnologias
+ Las tecnologias empleadas en el desarrollo son: <tt>Ruby</tt>, <tt>Rails</tt>, <tt>javaScript</tt>, <tt>Postgress</tt>, <tt>HTML</tt> y <tt>sqlite3</tt> en etapa de desarrollo.
+ == SO
+ * Unbuntu 16.04
+ == Despliegue en DCA
+ Para el despligue de la app-web se configuró openvpn y los comandos necesarios para esteblecer la conexion con el DCA fueron afrecidos por el docente en el repo de la materia: github.com/st0263eafit/appwebArticulosRails
+ == Resultados
+ se cumplieron la mayoria de los requisitos a esepción de registro en tiempo real de la ubucación del dispositivo
+ ya que la app-web se basa en un address diligenciado por el usuario el cual gracias a la gema geocoder la trasforma en coordenadas y luego gracias a la gema de gmaps4rails graficamos la ubicación, es decir, se esperaba que las coordenadas las tomara directamente del dipositivo y no del usuario.
+ == Conclusiones
+ Este primer proyecto fue realmente retante para nostros los estiantes de Top. en Telm. primeramente nos enfrentamos a un desarrollo web y comprendimos la tarea de de la herramienta de conectividad OpenVpn con la cual pudimos conectarnos al datacenter academico según los pasos indicados en Despliegue en DCA, luego nos enfrentamos a la herramienta docker la cual proporciona una capa de automatizacion de virtualizacion en difts sistemas Op.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +67,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+
