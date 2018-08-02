@@ -1,7 +1,7 @@
 == PROYECTO 1 - Geolocation.
 == Daniel Morales Londoño - dmoral12@eafit.edu.co
  Este poryecto tiene el objetivo de desarrollar conseptos básicos de desarrollo web, dockerizacion y desplegar app al nube/datacenter. El proyecto consiste en una aplicación en la cual un usuario registrado puede guradar su ubicacion actual y graficarla en el mapa.
- == Requisitos funcionales
+== Requisitos funcionales
  * Autenticación de usuarios
  * Registro de eventos en tiempo real
  * Visualización de ruta previamente almacenada
