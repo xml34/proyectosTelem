@@ -13,12 +13,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/insert', function(req, res, next) {
 
-  var email1 = JSON.stringify(req.body.email);
-  console.log(email1);
+  var antLat = JSON.stringify(req.body.Latitud);
+  var antLong = JSON.stringify(req.body.Longitud);
+  var antEm = JSON.stringify(req.body.email);
+
+  console.log("MENSAJE MIO");
+  console.log(antEm);
   var item = {
-    latitud: req.body.Latitud,
-    longitud: req.body.Longitud,
-    email: email1
+    latitud: antLat,
+    longitud: antLong,
+    email: antEm
   };
 
 
