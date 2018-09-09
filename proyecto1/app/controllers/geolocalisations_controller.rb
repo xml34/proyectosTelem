@@ -7,6 +7,7 @@ class GeolocalisationsController < ApplicationController
 		@hash = Gmaps4rails.build_markers(@geolocalisations) do |geolocalisation, marker|
   			marker.lat geolocalisation.latitude
   			marker.lng geolocalisation.longitude
+  			#marker.infowindow geolocalisation.title
 		end
 	end
 	#GET /geolocalisations/:id
