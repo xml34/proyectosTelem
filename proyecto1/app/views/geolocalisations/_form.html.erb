@@ -6,10 +6,10 @@
 		</div>
 	<%end%>
 	<div class="field">		
-		<%=f.text_field :latitude, placeholder: "latitude"%>
+		<%=f.text_field :latitude, placeholder: "latitude", id: "lat"%>
 	</div>
 	<div class="field">
-		<%=f.text_field :longitude, placeholder: "longitude"%>
+		<%=f.text_field :longitude, placeholder: "longitude", id: "lot"%>
 	</div>
 	<div class="field">
 		<%=f.text_field :name, placeholder: "name"%>
@@ -24,8 +24,8 @@
 	<div class="field">
 		<%=f.submit "OBTENER", class:"btn"%>
 	</div>
+ 
 <%end%>
-
 <button onclick="getLocation();">Obtener localizacion</button>
 <button onclick="stopLocation();">Para localizacion</button>
 
@@ -55,15 +55,14 @@
       
   }
   function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
+      //x.innerHTML = "Latude: " + position.coords.latitude + 
+      //"<br>Longitude: " + position.coords.longitude;
       var my_lat = position.coords.latitude;
       var my_lot = position.coords.longitude;
-      $(document).ready(function(){
-        $("#lat").val(my_lat);
-        $("#lot").val(my_lot);
-      });
-      sendPosition(my_lat,my_lot);
+      document.getElementById("lat").value = my_lat;
+      document.getElementById("lot").value = my_lot;
+
+
       //form.submit();
   }
   function sendPosition(lat, lon) {
@@ -81,16 +80,16 @@
   function showError(error) {
       switch(error.code) {
           case error.PERMISSION_DENIED:
-              x.innerHTML = "User denied the request for Geolocation."
+              x.innerHTML = "Acceso denegado a optener la localizacion."
               break;
           case error.POSITION_UNAVAILABLE:
-              x.innerHTML = "Location information is Unavailable."
+              x.innerHTML = "La ubicacion del dispositovo no esta disp"
               break;
           case error.TIMEOUT:
-              x.innerHTML = "The request to get user location timed out."
+              x.innerHTML = "location timed out."
               break;
           case error.UNKNOWN_ERROR:
-              x.innerHTML = "An unknown error occurred."
+              x.innerHTML = "Ha ocurrido un error"
               break;
       }
   }
